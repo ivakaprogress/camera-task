@@ -1,0 +1,8 @@
+venv
+.idea
+mouse_data.db
+# exclude everything
+images/*
+
+# exception to the rule
+!images/.gitkeep
