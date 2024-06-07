@@ -13,7 +13,7 @@ This application uses parallel processes and Python libraries to visualize the c
 1. Clone the repository from GitHub:
 
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/ivakaprogress/camera-task.git
     ```
 
 2. Install the required Python packages listed in the `requirements.txt` file:
