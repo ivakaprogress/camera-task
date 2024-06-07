@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Tracker with Webcam Capture</title>
+</head>
+<body>
+    <h1>Mouse Tracker with Webcam Capture</h1>
+    <div>
+        <h2>Latest Capture:</h2>
+        <img id="latestImage" src="" alt="No image captured yet" style="max-width:100%;"/>
+    </div>
+    <script>
+        const ws = new WebSocket('ws://localhost:6789');
+
+        document.addEventListener('mousemove', (event) => {
+            const x = event.clientX;
+            const y = event.clientY;
+            ws.send(`${x},${y}`);
+        });
+
+        document.addEventListener('click', (event) => {
+            const x = event.clientX;
+            const y = event.clientY;
+            ws.send(`${x},${y},click`);
+        });
+
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            if (data.imagePath) {
+                document.getElementById('latestImage').src = data.imagePath;
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+Flask-SocketIO
+python-engineio
+python-socketio
+opencv-python
+pyserial
+flask
+websockets
+aiohttp
